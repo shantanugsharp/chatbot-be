@@ -15,13 +15,12 @@ def get_openai_client():
 
 def get_completion_openai(prompt: str):
     client = get_openai_client()
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=1000,
-        temperature=0.7
+    # Using responses API format
+    response = client.responses.create(
+        model="o3-2025-04-16",
+        input=prompt
     )
-    return response.choices[0].message.content
+    return response.output_text
 
 def get_completion(prompt: str, is_json=True):
     # Simplified - always use OpenAI, no email routing
