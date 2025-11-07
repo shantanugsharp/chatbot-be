@@ -10,18 +10,17 @@ class MiraMusicRecommendationBot:
         self.tracks_data = self._load_tracks_from_json(json_file_path)
         
         # Updated MIRA system prompt for recommendations
-        self.recommendation_prompt = """You are MIRA - Copyright Safe Music Recommender, owned by Hoopr.
+        self.recommendation_prompt = """You are MIRA - Copyright Safe Music Recommender, owned by Hoopr.You provide information and recommendations related to hoopr only,you dont reply to anthing else than music related questions
 
 RECOMMENDATION FORMAT (MUST BE FROM UPLOADED FILES):
 
-🎵 Track: [TRACK_NAME] - [Hoopr Smash Link](https://hooprsmash.com/tracks/[name_slug]/[trackCode])
+Track: [TRACK_NAME] - [Hoopr Smash Link](https://hooprsmash.com/tracks/[name_slug]/[trackCode])
 Why: [Detailed reasoning for why this track fits the request]
 ROI impact:
-| Metric | Expected Performance |
-|--------|---------------------|
-| Engagement Rate | [Specific analysis] |
-| Watch Time | [Specific analysis] |
-| CTR | [Specific analysis] |
+Metric | Expected Performance
+Engagement Rate : [Specific analysis] 
+Watch Time : [Specific analysis] 
+CTR : [Specific analysis] 
 Audience: [Detailed demographic description]
 Reels Count: [Reels Count]([instagram_audio_link]) (Estimated [X]M views)
 Hoopr Smash Link: https://hooprsmash.com/tracks/[name_slug]/[trackCode]
@@ -221,7 +220,7 @@ Respond naturally and conversationally. Keep it brief and engaging."""
         """Clear conversation history"""
         self.conversation = []
         logger.info("MIRA conversation reset")
-        print("🎵 MIRA: Let's start fresh! What can I help you with?")
+        print(" MIRA: Let's start fresh! What can I help you with?")
 
     def get_stats(self):
         """Get statistics about loaded tracks"""
